@@ -1,14 +1,3 @@
-const getKey = () => {
-    return new Promise((resolve, reject) => {
-        chrome.storage.local.get(['openai-key'],(result) => {
-            if (result['openai-key']) {
-                const decodedKey = atob(result['openai-key']);
-                resolve(decodedKey);
-            }
-        });
-    });
-};
-
 const sendMessage = (content) => {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       
@@ -27,25 +16,20 @@ const sendMessage = (content) => {
   };
 
 const generate = async (prompt) => {
-    const key = await getKey();
-    const url = 'https://api.openai.com/v1/completions';
+    const url = `https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=${prompt}`;
+    console.log("myurl is: ", url);
 
-    const completionResponse = await fetch(url, {
-        method: 'POST',
+    const options = {
+        method: 'GET',
         headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${key}`,
-        },
-        body: JSON.stringify({
-            model: 'text-davinci-003',
-            prompt: prompt,
-            max_tokens: 1250,
-            temperature: 0.7,
-        }),
-    });
+            'X-RapidAPI-Key': '348b2319b4msha3e84a1fb857c90p18ed89jsnb9b780258e2e',
+            'X-RapidAPI-Host': 'mashape-community-urban-dictionary.p.rapidapi.com'
+        }
+    };
 
-    const completion = await completionResponse.json();
-    return completion.choices.pop();
+    const response = await fetch(url, options);
+    const responseJson = await response.json();
+    return responseJson;
 }  
 
 const generateCompletionAction = async (info) => {
@@ -53,13 +37,12 @@ const generateCompletionAction = async (info) => {
         sendMessage('generating...');
 
         const { selectionText } = info;
-        const basePromptPrefix = `Write me a Python program that is able to `;
 
-        console.log(basePromptPrefix);
-        const baseCompletion = await generate(`${basePromptPrefix}${selectionText}`);
-        console.log(baseCompletion.text);
+        const baseCompletion = await generate(`${selectionText}`);
 
-        sendMessage(baseCompletion.text);
+        console.log("Base Completion ", baseCompletion);
+
+        sendMessage(baseCompletion);
     } catch (error) {
         console.log(error);
         sendMessage(error.toString());
@@ -69,7 +52,7 @@ const generateCompletionAction = async (info) => {
 chrome.runtime.onInstalled.addListener(() => {
     chrome.contextMenus.create({
         id: 'context-run',
-        title: 'Generate Python Program',
+        title: 'Explain This acronym',
         contexts: ['selection'],
     });
 });

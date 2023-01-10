@@ -1,6 +1,6 @@
 {
-  "name": "English to Python translator",
-  "description": "1.Think of a cool application 2. Type your idea in some web page (the more specific you are, the better) 3. Highlight the text 4. Get Python code. Easy as that!",
+  "name": "Explain this acronym!",
+  "description": "Highlight an acronym whose meaning you wanna know, right click and press Explain!",
   "version": "1.0",
   "manifest_version": 3,
   "icons": {
@@ -11,7 +11,7 @@
   },
   "action": {
     "default_popup": "index.html",
-    "default_title": "Generate blog post"
+    "default_title": " "
   },
   "background": {
     "service_worker": "scripts/contextMenuServiceWorker.js"
