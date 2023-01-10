@@ -11,7 +11,7 @@ const insert = (content) => {
 
         const definition = content.list[i]["definition"];
         const p1 = document.createElement('p');
-        p1.textContent = `${(i + 1).toString()})\n ${definition}`;
+        p1.textContent = `${(i + 1).toString()})\nDefinition: ${definition}`;
         element.appendChild(p1);
 
         const br1 = document.createElement('br');
@@ -19,7 +19,7 @@ const insert = (content) => {
 
         const example = content.list[i]["example"];
         const p2 = document.createElement('p');
-        p2.textContent = example;
+        p2.textContent = "Example: " + example;
         element.appendChild(p2);
 
     }
