@@ -16,5 +16,12 @@ This is a chromium based browser extension that accesses the [Urban Dictionary](
 
 6. Find the `Load unpacked` button. (Usually on the top left corner.) This will open a new window. Navigate to the directory where you previously cloned the project to, and click inside the project, then click `OK/Select`.
 
-7. ### Congratulations! ###
-You have successfully installed the extension.
+7. <b>Congratulations!</b> You have successfully installed the extension.
+
+#### 2. How do I actually use this?
+
+You can use this extension in 2 different ways. 
+
+1. Click on your extensions button inside the browser and type away lil bro. 
+
+2. Go to [Calmly](https://www.calmlywriter.com/online/), type anything you wanna search, highlight it and right-click on it. You'll see an option there that says "Explain this Acronym". Click on it and watch the magic happen.
