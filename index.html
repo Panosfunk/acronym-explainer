@@ -3,13 +3,23 @@
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
-        <div id="">
-            <p>To get started, write/paste an acronym below</p>
-            <input id="input_acro" />
-            <button id="explain_button">Explain!</button>
-        </div>
-        <div id="output">
-           <p>Your acronym has the following meaning(s): </p>
+        <div class="root">
+            <div class="container">
+                <div class="explain-container" id="input">
+                    <input
+                        id="input_container"
+                        class="prompt-box"
+                        placeholder="To get started, write/paste an acronym below"
+                    />
+                    <button id="explain_button" class="cta-button explain-button" >Explain!</button>
+                </div>
+                <div class="prompt-container">
+                    <div class="prompt-container" id="output">
+                        <p>Your acronym has the following meaning(s)</p>
+                        <div class="prompt-box droid"></div>
+                    </div>
+                </div>
+            </div>  
         </div>
     </body>
     <script src="index.js"></script>

@@ -1,10 +1,12 @@
 const insert = (content) => {
+    
     const elements = document.getElementsByClassName('droid');
 
     if (elements.length === 0) {
         return;
     }
 
+    console.log("insideinsert", content);
     const element = elements[0];
 
     for (let i=0; i < content.list.length; i++) {
