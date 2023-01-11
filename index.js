@@ -1,19 +1,3 @@
-// const sendMessage = (content) => {
-//     chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
-//         const activeTab = tabs[0].id;
-
-//         chrome.tabs.sendMessage(
-//             activeTab, 
-//             { message: 'inject', content },
-//             (response) => {
-//                 if (response.status === 'failed') {
-//                     console.log("Injection failed");
-//                 }
-//             }
-//         );
-//     });
-// };
-
 const generateExplanation = async (prompt) => {
     const url = `https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=${prompt}`;
     console.log("myurl is: ", url);

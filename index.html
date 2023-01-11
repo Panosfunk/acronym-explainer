@@ -5,18 +5,19 @@
     <body>
         <div class="root">
             <div class="container">
-                <div class="explain-container" id="input">
+                <div class="prompt-container" id="input">
                     <input
                         id="input_container"
                         class="prompt-box"
                         placeholder="To get started, write/paste an acronym below"
                     />
-                    <button id="explain_button" class="cta-button explain-button" >Explain!</button>
-                </div>
-                <div class="prompt-container">
-                    <div class="prompt-container" id="output">
+                    <button id="explain_button" class="cta-button explain-button">Explain!</button>
+
+                    <div id="output">
                         <p>Your acronym has the following meaning(s)</p>
-                        <div class="prompt-box droid"></div>
+                        <div class="output-content">
+                            <p class="prompt-box droid"></p>
+                        </div>
                     </div>
                 </div>
             </div>  

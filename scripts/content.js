@@ -6,7 +6,6 @@ const insert = (content) => {
         return;
     }
 
-    console.log("insideinsert", content);
     const element = elements[0];
 
     for (let i=0; i < content.list.length; i++) {
